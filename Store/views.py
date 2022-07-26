@@ -1,10 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from Store.models import Departamento
+
 
 # Create your views here.
 def index (request):
-    return HttpResponse('Hello World')
+    meu_nome = 'Raphael Carvalho'
+    sexo = 'M'
+    context = {
+        'nome': meu_nome,
+        'artigo': 'o' if sexo == 'M' else 'a'}
+    return render(request, 'index.html', context)
 
 def teste(request):
-    return HttpResponse ('Minha Página de Teste')
+ # depto = ['Casa', 'Informática', 'Telefonia', 'Game']
+    depto = Departamento.objects.all ()
+    context = {'departamentos': depto}
+    return render(request, 'teste.html', context)
