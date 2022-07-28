@@ -1,7 +1,8 @@
+from ast import Return
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from Store.models import Departamento
+from Store.models import Departamento, Categoria, Produto
 
 
 # Create your views here.
@@ -18,3 +19,18 @@ def teste(request):
     depto = Departamento.objects.all ()
     context = {'departamentos': depto}
     return render(request, 'teste.html', context)
+
+def Departamentos(request):
+    depto = Departamento.objects.all ()
+    context = {'departamentos': depto}
+    return render(request, 'departamentos.html', context)
+
+def categorias(request):
+    lista_categorias = Categoria.objects.all ()
+    context = {'categorias': lista_categorias}
+    return render(request, 'categorias.html', context)
+
+def produtos(request):
+    tabela_produtos = Produto.objects.all ()
+    context = {'produtos': tabela_produtos}
+    return render(request, 'produtos.html', context)
