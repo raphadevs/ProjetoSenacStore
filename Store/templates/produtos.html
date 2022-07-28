@@ -15,24 +15,16 @@
             <th>Preço </th>
             <th> Estoque </th>
         <tr>
+        {% for prod in produtos %}
         <tr>
-            <td>Produto A </td>
-            <td>Categoria 1</td>
-            <td>R$10,00 </td>
-            <td>50 </td>
+            <td>{{ prod.nome }} </td>
+            <td>{{prod.categoria}} </td>
+            <td>R$ {{prod.preco}} </td>
+            <td> {{prod.estoque}} </td>
+            {% endfor %}
+
         
-        <tr>
-        <tr>
-            <td>Produto B </td>
-            <td>Categoria 2</td>
-            <td>R$28,50 </td>
-            <td> 8</td>
         
-        <tr> 
-            <td>Produto C </td>
-            <td>Categoria 3</td>
-            <td>R$ 105,90 </td>
-            <td> 37 </td>
             
 
 
