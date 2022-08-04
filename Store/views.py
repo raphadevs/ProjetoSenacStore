@@ -27,10 +27,19 @@ def Departamentos(request):
 
 def categorias(request, id):
     lista_categorias = Categoria.objects.filter(departamento_id = id)
-    context = {'categorias': lista_categorias}
+    depto = Departamento.objects.get(id = id)
+    context = {
+                'categorias': lista_categorias,
+                'departamento': depto
+    }
     return render(request, 'categorias.html', context)
 
 def produtos(request, id):
     tabela_produtos = Produto.objects.filter (categoria_id = id)
     context = {'produtos': tabela_produtos}
     return render(request, 'produtos.html', context)
+
+def produtos_detalhe(request, id):
+    
+
+    
