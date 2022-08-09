@@ -40,6 +40,8 @@ def produtos(request, id):
     return render(request, 'produtos.html', context)
 
 def produtos_detalhe(request, id):
-    
-
-    
+    produtos = Produto.objects.get(id =id)
+    context = {
+                'produto': produtos
+    }
+    return render (request, 'produto_detalhe.html',context)
